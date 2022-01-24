@@ -1,10 +1,10 @@
 {
-  "main": "dist",
+  "main": "dist/app.js",
   "private": true,
   "scripts": {
     "test": "npm run build && npm run lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "build": "tsc -p .",
+    "build": "babel --compact false src -d dist",
     "watch": "tsc -p . -w --preserveWatchOutput --inlineSourceMap",
     "start": "tabris serve -a -w"
   },
@@ -13,6 +13,10 @@
     "tabris-decorators": "^3.8.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-async-to-generator": "^7.16.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^8.7.0",
